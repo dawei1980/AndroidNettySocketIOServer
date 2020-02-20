@@ -58,9 +58,10 @@ public class SocketIOServer {
     }
 
     public void sendAllUser( String type, Object content ){
+        //每5秒广播发送一次数据包
         while (true) {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(5000);
                 //广播消息
                 server.getBroadcastOperations().sendEvent(type, content);
                 System.out.println(content);
